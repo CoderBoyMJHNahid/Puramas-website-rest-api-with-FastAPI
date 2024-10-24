@@ -1,9 +1,12 @@
 import requests
 from db.conn import conn, connection
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-API_KEY = "AIzaSyDly2CFeZE_tNngRcQ-9ykVGWc336oMa9c"
-BLOG_ID = "8446097124775132799"
+API_KEY = os.environ.get("API_KEY")
+BLOG_ID = os.environ.get("BLOG_ID")
 base_url = f'https://www.googleapis.com/blogger/v3/blogs/{BLOG_ID}/posts'
 
 def fetch_all_posts():
